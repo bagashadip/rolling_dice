@@ -75,6 +75,13 @@ function startGame(inputPlayers, totalDice) {
                 playersWithDice[i]["dice"][j] = null;
                 break;
               }
+
+              if (
+                x === playersWithDice.length - 1 &&
+                playersWithDice[x]["dice"].length === 0
+              ) {
+                x = -1;
+              }
             }
           }
         }
