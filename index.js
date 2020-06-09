@@ -63,17 +63,27 @@ function startGame(inputPlayers, totalDice) {
           if (i === playersWithDice.length - 1) {
             for (let x = 0; x < playersWithDice.length; x++) {
               if (playersWithDice[x]["dice"].length !== 0) {
-                playersWithDice[x]["dice"].push("s1");
-                playersWithDice[i]["dice"][j] = null;
-                break;
+                let checkNull = playersWithDice[x]["dice"].every(
+                  (val, i, arr) => val === null
+                );
+                if (!checkNull) {
+                  playersWithDice[x]["dice"].push("s1");
+                  playersWithDice[i]["dice"][j] = null;
+                  break;
+                }
               }
             }
           } else {
             for (let x = i + 1; x < playersWithDice.length; x++) {
               if (playersWithDice[x]["dice"].length !== 0) {
-                playersWithDice[x]["dice"].push("s1");
-                playersWithDice[i]["dice"][j] = null;
-                break;
+                let checkNull = playersWithDice[x]["dice"].every(
+                  (val, i, arr) => val === null
+                );
+                if (!checkNull) {
+                  playersWithDice[x]["dice"].push("s1");
+                  playersWithDice[i]["dice"][j] = null;
+                  break;
+                }
               }
 
               if (
